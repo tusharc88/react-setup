@@ -14,9 +14,7 @@
     "plugins": [
       "react",
       "prettier",
-      "jsx-a11y",
-      "redux-saga",
-      "flowtype"
+      "jsx-a11y"
     ],
     "parserOptions": {
         "ecmaVersion": 6,
@@ -24,5 +22,8 @@
         "ecmaFeatures": {
             "jsx": true
           }
+    },
+    "rules": {
+      "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }]
     }
 }
