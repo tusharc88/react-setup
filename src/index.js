@@ -1,6 +1,6 @@
 import 'babel-polyfill';
 import React from 'react';
 import { render } from 'react-dom';
-import App from './App';
+import Root from './Root';
 
-render(<App />, document.getElementById('app'));
+render(<Root />, document.getElementById('root'));
