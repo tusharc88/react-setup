@@ -1,11 +1,22 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js'
+  },
   output: {
-    path: path.resolve(__dirname, '/dist'),
-    filename: 'bundle.js'
+    path: path.resolve(__dirname, 'dist'),
+    filename: '[name].bundle.js'
+  },
+  devtool: 'eval',
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    host: '127.0.0.1',
+    port: 3000
+    // compress: true,
+    // proxy
   },
   module: {
     rules: [
@@ -21,12 +32,13 @@ module.exports = {
         use: ['style-loader', 'css-loader']
       },
       {
-        test: /\.(png|svg|jpg|gif)$/,
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: ['file-loader']
       }
     ]
   },
   plugins: [
+    new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({
       template: './src/index.html'
     })
