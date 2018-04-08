@@ -4,15 +4,15 @@ const CleanWebpackPlugin = require('clean-webpack-plugin');
 
 module.exports = {
   entry: {
-    app: './src/index.js'
+    app: path.resolve(__dirname, '../../src/index.js')
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, '../../dist'),
     filename: '[name].bundle.js'
   },
   devtool: 'eval',
   devServer: {
-    contentBase: path.join(__dirname, 'dist'),
+    contentBase: path.resolve(__dirname, '../../dist'),
     host: '127.0.0.1',
     port: 3000
     // compress: true,
@@ -38,9 +38,9 @@ module.exports = {
     ]
   },
   plugins: [
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin(['dist'], {root: path.resolve(__dirname, '../../')}),
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: path.resolve(__dirname, '../../public/index.html')
     })
   ]
 }
