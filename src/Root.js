@@ -1,10 +1,7 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
+import TodoList from './components/TodoList/index';
 
-const Root = () => (
-  <div>
-    <h1>My React App</h1>
-  </div>
-);
+const Root = () => <TodoList />;
 
 export default hot(module)(Root);
